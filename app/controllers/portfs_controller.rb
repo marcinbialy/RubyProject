@@ -1,5 +1,5 @@
 class PortfsController < ApplicationController
-	 before_action :set_portf, only: [:show, :edit, :update, :destroy]
+
 	def index
 		@portfolio_items = Portf.all
 	end
@@ -13,13 +13,29 @@ class PortfsController < ApplicationController
 
     respond_to do |format|
       if @portfolio_item.save
-        format.html { redirect_to portfs_path, notice: 'Blog was successfully created.' }
-        format.json { render :show, status: :created, location: @blog }
+        format.html { redirect_to portfs_path, notice: 'Portfolio was successfully created.' }
+        #format.json { render :show, status: :created, location: @portf }
       else
         format.html { render :new }
-        format.json { render json: @blog.errors, status: :unprocessable_entity }
+        #format.json { render json: @portf.errors, status: :unprocessable_entity }
       end
     end
   end
+
+  def edit
+  	@portfolio_item = Portf.find(params[:id])
+  end
+
+   def update
+   @portfolio_item = Portf.find(params[:id])
+
+   respond_to do |format|
+     if @portfolio_item.update(params.require(:portf).permit(:title, :subtitle, :body))
+       format.html { redirect_to portfs_path, notice: 'Portfolio was successfully updated.' }
+     else
+       format.html { render :edit }
+     end
+   end
+ end
 
 end
