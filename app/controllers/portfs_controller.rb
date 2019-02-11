@@ -42,4 +42,13 @@ class PortfsController < ApplicationController
    end
  end
 
+ def destroy
+ 	@portfolio_item = Portf.find(params[:id])
+
+    @portfolio_item.destroy
+    respond_to do |format|
+      format.html { redirect_to portfs_url, notice: 'Record was deleted.' }
+    end
+  end
+
 end
