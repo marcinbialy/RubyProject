@@ -4,6 +4,10 @@ class PortfsController < ApplicationController
 		@portfolio_items = Portf.all
 	end
 
+	def show
+		@portfolio_item = Portf.find(params[:id])
+	end
+
 	def new
 		@portfolio_item = Portf.new
 	end
