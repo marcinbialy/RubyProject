@@ -17,7 +17,7 @@ class PortfsController < ApplicationController
 
     respond_to do |format|
       if @portfolio_item.save
-        format.html { redirect_to portfs_path, notice: 'Portfolio was successfully created.' }
+        format.html { redirect_to portfolio_index_path, notice: 'Portfolio was successfully created.' }
         #format.json { render :show, status: :created, location: @portf }
       else
         format.html { render :new }
@@ -35,7 +35,7 @@ class PortfsController < ApplicationController
 
    respond_to do |format|
      if @portfolio_item.update(params.require(:portf).permit(:title, :subtitle, :body))
-       format.html { redirect_to portfs_path, notice: 'Portfolio was successfully updated.' }
+       format.html { redirect_to portfolio_index_path, notice: 'Portfolio was successfully updated.' }
      else
        format.html { render :edit }
      end
@@ -47,7 +47,7 @@ class PortfsController < ApplicationController
 
     @portfolio_item.destroy
     respond_to do |format|
-      format.html { redirect_to portfs_url, notice: 'Record was deleted.' }
+      format.html { redirect_to portfolio_index_url, notice: 'Record was deleted.' }
     end
   end
 
