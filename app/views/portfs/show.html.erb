@@ -1,6 +1,11 @@
 <h2><%= @portfolio_item.title %></h2>
 
 <em><%= @portfolio_item.subtitle %></em>
-<p><%= @portfolio_item.body %></p>>
+<p><%= @portfolio_item.body %></p>
 <%= image_tag @portfolio_item.main_image %>
 <%= link_to "Back", portfolio_index_path %>
+
+<h2>Technologies used:</h2>
+<% @portfolio_item.technologies.each do |t| %>
+	<p><%= t.name %></p>
+<% end %>
