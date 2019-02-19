@@ -14,7 +14,7 @@ class PortfsController < ApplicationController
 	end
 
 	def create
-    @portfolio_item = Portf.new(params.require(:portf).permit(:title, :subtitle, :body, technologies_attributes: [:name]))
+    @portfolio_item = Portf.new(portfolio_params)
 
     respond_to do |format|
       if @portfolio_item.save
@@ -35,7 +35,7 @@ class PortfsController < ApplicationController
    @portfolio_item = Portf.find(params[:id])
 
    respond_to do |format|
-     if @portfolio_item.update(params.require(:portf).permit(:title, :subtitle, :body))
+     if @portfolio_item.update(portfolio_params)
        format.html { redirect_to portfolio_index_path, notice: 'Portfolio was successfully updated.' }
      else
        format.html { render :edit }
@@ -50,6 +50,14 @@ class PortfsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to portfolio_index_url, notice: 'Record was deleted.' }
     end
+  end
+
+  private
+  def portfolio_params
+      params.require(:portf).permit(:title, 
+                                    :subtitle, 
+                                    :body, 
+                                    technologies_attributes: [:name])
   end
 
 end
