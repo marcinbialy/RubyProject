@@ -1,4 +1,5 @@
 class PortfsController < ApplicationController
+before_action :set_portfolio_item, only: [:edit, :update, :show, :destroy]
 layout "portfolio"
 
 	def index
@@ -6,7 +7,7 @@ layout "portfolio"
 	end
 
 	def show
-		@portfolio_item = Portf.find(params[:id])
+    binding.pry
 	end
 
 	def new
@@ -29,12 +30,9 @@ layout "portfolio"
   end
 
   def edit
-  	@portfolio_item = Portf.find(params[:id])
   end
 
    def update
-   @portfolio_item = Portf.find(params[:id])
-
    respond_to do |format|
      if @portfolio_item.update(portfolio_params)
        format.html { redirect_to portfolio_index_path, notice: 'Portfolio was successfully updated.' }
@@ -45,8 +43,6 @@ layout "portfolio"
  end
 
  def destroy
- 	@portfolio_item = Portf.find(params[:id])
-
     @portfolio_item.destroy
     respond_to do |format|
       format.html { redirect_to portfolio_index_url, notice: 'Record was deleted.' }
@@ -59,6 +55,10 @@ layout "portfolio"
                                     :subtitle, 
                                     :body, 
                                     technologies_attributes: [:name])
+  end
+
+  def set_portfolio_item
+    @portfolio_item = Portf.find(params[:id])
   end
 
 end
