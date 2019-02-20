@@ -1,4 +1,5 @@
 class PortfsController < ApplicationController
+layout "portfolio"
 
 	def index
 		@portfolio_items = Portf.all
