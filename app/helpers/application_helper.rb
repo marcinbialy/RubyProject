@@ -14,4 +14,18 @@ module ApplicationHelper
       		content_tag(:p, greeting, class: "source-greeting")
     	end 
 	end
+
+  def set_copyright_helper
+    @copyright = MBViewTool::Render.copyright 'Marcin', 'All rights reserved.'
+  end
+
 end
+
+module MBViewTool
+  class Render
+    def self.copyright name, msg
+      "&copy; #{Time.now.year} | <b>#{name}</b> #{msg}".html_safe
+    end
+  end
+end
+
