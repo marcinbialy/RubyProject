@@ -1,13 +1,13 @@
 class PortfsController < ApplicationController
 before_action :set_portfolio_item, only: [:edit, :update, :show, :destroy]
 layout "portfolio"
+access all: [:show, :index], user: {except: [:destroy, :edit, :update, :new, :create]}, site_admin: :all
 
 	def index
 		@portfolio_items = Portf.all
 	end
 
 	def show
-    binding.pry
 	end
 
 	def new
