@@ -1,9 +1,18 @@
-<h1>Pages#contact</h1>
+<h1>Contact</h1>
+<hr>
+<div class="row">
+	<div class="col-md-6">
+		<h3>Office Adress</h3>
+		<p>My office adress, ble ble ble ble</p>
+		<h3>Phone</h3>
+		<p><%= number_to_phone "5555555555" %></p>
+		<h3>Email</h3>
+		<p><a href="mailto:email@email.com?subject=PortfolioContact" "email me">Email me</a></p>
+	</div>
+	<div class="col-md-6">
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2376.976906754725!2d14.546029150622632!3d53.43312117581201!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47aa0915ab6950f7%3A0xac99d0ce4e76f4bd!2sPlac+Grunwaldzki%2C+70-001+Szczecin!5e0!3m2!1spl!2spl!4v1550830011034" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+	</div>
+</div>
 
-<p><%= number_to_phone "5555555555" %></p>
 
-<p><%= number_to_currency "555" %></p>
 
-<p><%= number_to_percentage "5.1" %></p>
-
-<p><%= number_with_delimiter "4651651684484" %></p>
