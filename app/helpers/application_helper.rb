@@ -19,6 +19,48 @@ module ApplicationHelper
     @copyright = MBViewTool::Render.copyright 'Marcin', 'All rights reserved.'
   end
 
+# creating list for navigation helper
+  def nav_list_items
+      [
+        {
+          url: root_path, 
+          title: "Home"
+        },
+        {
+          url: about_path, 
+          title: "About"
+        },
+        {
+          url: contact_path, 
+          title: "Contact"
+        },
+        {
+          url: blogs_path, 
+          title: "Blog"
+        },
+        {
+          url: portfolio_index_path, 
+          title: "Portfolio"
+        },
+      ]
+    end
+
+# main helper for navbar 
+    def nav_helper style, tag_type
+      nav_links = ''
+
+      nav_list_items.each do |item|
+        nav_links<< "<#{tag_type}><a href='#{item[:url]}' class='#{style} #{active? item[:url]}'>#{item[:title]}</a></#{tag_type}>"
+      end
+
+      nav_links.html_safe
+    end
+
+# creating swith for navbar activ class
+    def active? path 
+      "active" if current_page? path
+    end
+
 end
 
 module MBViewTool
@@ -28,4 +70,3 @@ module MBViewTool
     end
   end
 end
-
