@@ -7,6 +7,13 @@ access all: [:show, :index], user: {except: [:destroy, :edit, :update, :new, :cr
 		@portfolio_items = Portf.by_position
 	end
 
+  def sort
+    params[:order].each do |key, value|
+      Portf.find(value[:id]).update(position: value[:position])
+    end
+    render body: nil
+  end
+
 	def show
 	end
 
