@@ -60,7 +60,9 @@ access all: [:show, :index], user: {except: [:destroy, :edit, :update, :new, :cr
   def portfolio_params
       params.require(:portf).permit(:title, 
                                     :subtitle, 
-                                    :body, 
+                                    :body,
+                                    :main_image,
+                                    :thumb_image, 
                                     technologies_attributes: [:name])
   end
 

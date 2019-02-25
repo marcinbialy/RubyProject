@@ -1,7 +1,7 @@
 <div class="container album text-muted">
 	<div class="row norma">
 		<div class="col-md-7">
-			<%= image_tag @portfolio_item.main_image %>
+			<%= image_tag @portfolio_item.main_image.to_s, width: '100%' %>
 		</div>
 		<div class="col-md-5">
 			<h4><%= @portfolio_item.title %></h4>
