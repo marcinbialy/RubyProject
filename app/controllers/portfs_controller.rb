@@ -19,7 +19,6 @@ access all: [:show, :index], user: {except: [:destroy, :edit, :update, :new, :cr
 
 	def new
 		@portfolio_item = Portf.new
-    3.times {@portfolio_item.technologies.build}
 	end
 
 	def create
@@ -63,7 +62,7 @@ access all: [:show, :index], user: {except: [:destroy, :edit, :update, :new, :cr
                                     :body,
                                     :main_image,
                                     :thumb_image, 
-                                    technologies_attributes: [:name])
+                                    technologies_attributes: [:id, :name, :_destroy])
   end
 
   def set_portfolio_item

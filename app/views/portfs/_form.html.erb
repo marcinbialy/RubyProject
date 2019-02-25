@@ -36,12 +36,15 @@
   <h4>Technologies:</h4>
   <div>
     <%= form.fields_for :technologies do |technology_form| %>
-    <div>
-      <%= technology_form.label :name %>
-      <%= technology_form.text_field :name, class: "form-control" %>
-    </div>
+    <%= render 'technology_fields', f: technology_form %>
     <% end %>
+  <!-- mapping between cocoon and technologies form fields -->
+    <div>
+      <%= link_to_add_association 'Add technology', form, :technologies %>
+    </div>
   </div>
+
+
 <br />
   <div class="form-group">
     <%= form.submit "Submit", class: "btn btn-primary" %>
