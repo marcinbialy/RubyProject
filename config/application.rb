@@ -29,5 +29,9 @@ module Portfolio
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # load modules from lib directory during aplication start
+    config.eager_load_paths << "#{Rails.root}/lib"
+
   end
 end
