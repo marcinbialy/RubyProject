@@ -6,6 +6,17 @@
   <p><%= @blog.body %></p>
 
   <%= link_to 'Back', blogs_path %>  
+
+  <!-- Comment form -->
+  <%= render 'comments/comment_form' %>
+  <!-- Comment form -->
+
+  <!-- Comments show -->
+  <div id="comments" data-blog-id="<%= @blog.id %>">
+    <%= render @blog.comments %>
+  </div>
+  <!-- Comments show -->
+
 </div>
 
 
