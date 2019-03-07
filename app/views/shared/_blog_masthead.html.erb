@@ -3,5 +3,6 @@
     <h4 class="blog-title">MB Blog</h4>
     <p class="lead blog-description">An example blog content.</p>
     <p><%= link_to 'New Blog', new_blog_path if logged_in?(:site_admin) %></p>
+    <p><%= link_to "Topic list", topics_path %></p>
   </div>
 </div>
